@@ -23,8 +23,9 @@ table.add_row("e", "e", "e", justify=["left", "center", "right"])
 table.add_row(entry_count=3)
 table.add_row("hello")
 table.display(style="bold")
-```
-```bash
+
+-> 
+
           Example table
 ╔═══════════╦═════════════╦══════╗
 ║  example  ║  example 2  ║  ex  ║
