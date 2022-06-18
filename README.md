@@ -24,9 +24,21 @@ table.add_row(entry_count=3)
 table.add_row("hello")
 table.display(style="bold")
 ```
+```bash
+          Example table
+╔═══════════╦═════════════╦══════╗
+║  example  ║  example 2  ║  ex  ║
+╠═══════════╬═════════════╬══════╣
+║  e        ║      e      ║   e  ║
+╠═══════════╬═════════════╬══════╣
+║           ║             ║      ║
+╠═══════════╬═════════════╬══════╣
+║  hello    ║             ║      ║
+╚═══════════╩═════════════╩══════╝
+```
 
 ## Classes
-# `Table`
+### `Table`
 | __Parameter__ | __Type__ | __Description__ |
 | :--- | :--- | :--- | 
 | __title__ | Optional[str]=None | The title of the table, justified center. || __padding__ | int=1 | How many spaces the cells are padded with to the left and right. |
@@ -34,11 +46,11 @@ table.display(style="bold")
 | __Method__ | __Parameters__ | __Return type__ | __Description__ |
 | :--- | :--- | :--- | :--- |
 | __pad__ | entry: str | None | Pads a cell with padding specified at the initialisation of the class. |
-| __add_row__ | \*entries: str,<br /> entry_count: Optional[int]=None,<br /> justify: Union[List[str], str]="left" | None | Adds row with specified entries and justification. __entry_count__ can be used to create empty rows. |
+| __add_row__ | \*entries: str,<br />entry_count: Optional[int]=None,<br />justify: Union[List[str], str]="left",<br />bold: bool=False,<br />bold_cells: Optional[List[int]]=None | None | Adds row with specified entries and justification. __entry_count__ can be used to create empty rows. If `bold` is `True` and `bold_cells` is not specified, all the entries in the row become bold. If `bold_cells` is specified, only the specified cells in the row become bold. |
 | __init_table__ | style: Optional[str]=None | None | Initialises the layout of the table. |
 | __display__ | style: Optional[str]=None | None | Prints the table. |
 
-# `Row`
+### `Row`
 | __Parameter__ | __Type__ | __Description__ |
 | :--- | :--- | :--- | 
 | __\*entries__ | str | The text for each cell. |
@@ -52,12 +64,12 @@ table.display(style="bold")
 | __get_entries__ | - | List[str] | Returns a list of the entries. |
 | __get_width__ | col: Optional[int]=None | Union[List[int], int] | Returns the width of a cell if `col` is specified, otherwise return the widths of the entries. |
 
-# `Charset`
+### `Charset`
 | __Parameter__ | __Type__ | __Description__ |
 | :--- | :--- | :--- | 
 | style | Optional[str]=None | Choose the set style you want the table to be - "regular", "bold" or "double". Defaults to "regular". |
 
-# `Justify(Enum)`
+### `Justify(Enum)`
 | __Method__ | __Parameters__ | __Return type__ | __Description__ |
 | :--- | :--- | :--- | :--- |
 | __string_reps__ | - | Dict[str, Justify] | (Staticmethod) Return the string representations of the justifications. |

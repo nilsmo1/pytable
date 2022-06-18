@@ -18,7 +18,9 @@ class Table:
     def add_row(self, 
                 *entries: str, 
                 entry_count: Optional[int]=None, 
-                justify: Union[List[str], str]="left") -> None:
+                justify: Union[List[str], str]="left",
+                bold: bool=False,
+                bold_cell: Optional[List[int]]=None) -> None:
         entries = list(entries) if entry_count is None or entries else [""]*entry_count
         if self.rows:
             cols = self.rows[0].get_entries()
@@ -26,6 +28,11 @@ class Table:
                 for _ in range(len(cols)-len(entries)):
                     entries.append("")
         entries = [self.pad(entry) for entry in entries]
+        if bold and bold_cell is None:
+            entries = [f"\033[1m{entry}\033[0m" for entry in entries]
+        elif bold_cell is not None:
+            for cell in bold_cell:
+                entries[cell] = f"\033[1m{entries[cell]}\033[0m"
         row = Row(*entries, entry_count=entry_count, justify=justify)
         self.rows.append(row)
         self.row_count += 1
@@ -45,6 +52,7 @@ class Table:
 
         # Title
         if not self.no_title:
+            print(ws, self.col_count)
             layout.append(f"{self.title:^{sum(ws)+self.col_count+1}}")
 
         # Top
