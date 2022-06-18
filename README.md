@@ -34,7 +34,7 @@ table.display(style="bold")
 | __Method__ | __Parameters__ | __Return type__ | __Description__ |
 | :--- | :--- | :--- | :--- |
 | __pad__ | entry: str | None | Pads a cell with padding specified at the initialisation of the class. |
-| __add_row__ | \*entries: str, entry_count: Optional[int]=None, justify: Union[List[str], str]="left" | None | Adds row with specified entries and justification. __entry_count__ can be used to create empty rows. |
+| __add_row__ | \*entries: str,<br /> entry_count: Optional[int]=None,<br /> justify: Union[List[str], str]="left" | None | Adds row with specified entries and justification. __entry_count__ can be used to create empty rows. |
 | __init_table__ | style: Optional[str]=None | None | Initialises the layout of the table. |
 | __display__ | style: Optional[str]=None | None | Prints the table. |
 
