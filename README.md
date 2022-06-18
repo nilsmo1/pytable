@@ -16,7 +16,7 @@ $ cd table-py/
 $ python3 example.py
 ```
 ```py
-from table-py.table import Table
+from table import Table
 table = Table(title="Example table", padding=2)
 table.add_row("example", "example 2", "ex")
 table.add_row("e", "e", "e", justify=["left", "center", "right"])
