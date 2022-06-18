@@ -18,11 +18,11 @@ $ python3 example.py
 ```py
 from table import Table
 table = Table(title="Example table", padding=2)
-table.add_row("example", "example 2", "ex")
+table.add_row("example", "example 2", "ex", bold=True)
 table.add_row("e", "e", "e", justify=["left", "center", "right"])
 table.add_row(entry_count=3)
 table.add_row("hello")
-table.display(style="bold")
+table.display(style="double")
 ```
 This code results in:
 ```
