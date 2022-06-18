@@ -28,7 +28,6 @@ class Row:
         bold_len = len("\033[1m\033[0m")
         if col is not None:
             if "\033[1m" in self.entries[col]: 
-                print("col", len(self.entries[col])-bold_len)
                 return len(self.entries[col])-bold_len
             return len(self.entries[col])
         widths = []
@@ -36,5 +35,4 @@ class Row:
             if "\033[1m" in entry:
                 widths.append(len(entry)-bold_len)
             else: widths.append(len(entry))
-        print(widths)
         return widths
