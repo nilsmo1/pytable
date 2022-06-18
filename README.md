@@ -24,7 +24,7 @@ table.add_row(entry_count=3)
 table.add_row("hello")
 table.display(style="double")
 ```
-This code results in:
+This code results in the following, the bold text does not show up here however.
 ```
           Example table           
 ╔═══════════╦═════════════╦══════╗
