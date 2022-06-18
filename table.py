@@ -23,7 +23,8 @@ class Table:
         if self.rows:
             cols = self.rows[0].get_entries()
             if len(entries) < len(cols):
-                entries.append(*["" for _ in range(len(cols)-len(entries))])
+                for _ in range(len(cols)-len(entries)):
+                    entries.append("")
         entries = [self.pad(entry) for entry in entries]
         row = Row(*entries, entry_count=entry_count, justify=justify)
         self.rows.append(row)
