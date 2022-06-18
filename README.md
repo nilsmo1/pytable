@@ -26,7 +26,7 @@ table.display(style="bold")
 ```
 
 ## Classes
-`Table`
+# `Table`
 | Parameter | Type | Description |
 | :--- | :--- | :--- | 
 | __title__ | Optional[str]=None | The title of the table, justified center. || __padding__ | int=1 | How many spaces the cells are padded with to the left and right. |
@@ -38,7 +38,7 @@ table.display(style="bold")
 | __init_table__ | style: Optional[str]=None | None | Initialises the layout of the table. |
 | __display__ | style: Optional[str]=None | None | Prints the table. |
 
-`Row`
+# `Row`
 | Parameter | Type | Description |
 | :--- | :--- | :--- | 
 | __\*entries__ | str | The text for each cell. |
@@ -52,12 +52,12 @@ table.display(style="bold")
 | __get_entries__ | - | List[str] | Returns a list of the entries. |
 | __get_width__ | col: Optional[int]=None | Union[List[int], int] | Returns the width of a cell if `col` is specified, otherwise return the widths of the entries. |
 
-`Charset`
+# `Charset`
 | Parameter | Type | Description |
 | :--- | :--- | :--- | 
 | style | Optional[str]=None | Choose the set style you want the table to be - "regular", "bold" or "double". Defaults to "regular". |
 
-`Justify(Enum)`
+# `Justify(Enum)`
 | Method | Parameters | Return type | Description |
 | :--- | :--- | :--- | :--- |
 | __string_reps__ | - | Dict[str, Justify] | (Staticmethod) Return the string representations of the justifications. |
