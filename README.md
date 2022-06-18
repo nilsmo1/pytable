@@ -26,8 +26,7 @@ table.display(style="double")
 ```
 This code results in:
 ```
-
-          Example table
+          Example table           
 ╔═══════════╦═════════════╦══════╗
 ║  example  ║  example 2  ║  ex  ║
 ╠═══════════╬═════════════╬══════╣
