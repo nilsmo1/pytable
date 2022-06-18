@@ -84,12 +84,3 @@ class Table:
         if not self.layout: self.init_table(style=style)
         for row in self.layout: print(row)
 
-
-if __name__ == "__main__":
-    # example
-    t1 = Table(title="Exempeltabell")
-    t1.add_row("example 1", "example 1", "example 1")
-    t1.add_row("ex2", "ex2")
-    t1.add_row("ex3", "ex3", "ex3", justify=["", "right", "right"])
-    t1.add_row(entry_count=3)
-    t1.display(style="double")
