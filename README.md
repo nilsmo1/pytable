@@ -4,10 +4,10 @@ A simple table generator for terminal use, written in python.
 ## Files
 | __Filename__ | __Description__ |
 | :--- | :--- |
-| __table.py__ | The main file containing the `Table` class. |
-| __\_styles.py__ | A file containing the different border styles and justifications. Classes `Justify` and `Charset` are in this file. |
-| __\_row.py__ | A file containing the `Row` class used in the table. |
-| __example.py__ | A quick example of a table. |
+| [__table.py__](https://github.com/nilsmo1/table-py/blob/main/table.py) | The main file containing the `Table` class. |
+| [__\_styles.py__](https://github.com/nilsmo1/table-py/blob/main/_styles.py) | A file containing the different border styles and justifications. Classes `Justify` and `Charset` are in this file. |
+| [__\_row.py__](https://github.com/nilsmo1/table-py/blob/main/_row.py) | A file containing the `Row` class used in the table. |
+| [__example.py__](https://github.com/nilsmo1/table-py/blob/main/example.py) | A quick example of a table. |
 
 ## Download and usage
 ```bash
