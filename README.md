@@ -47,6 +47,7 @@ This code results in the following, the bold text does not show up here however.
 | __Method__ | __Parameters__ | __Return type__ | __Description__ |
 | :--- | :--- | :--- | :--- |
 | __pad__ | entry: str | None | Pads a cell with padding specified at the initialisation of the class. |
+| __format__ | entries: List[str], bold: bool,<br />bold_cells: Optional[List[int]],<br />italic: bool,<br />italic_cells: Optional[List[int]] | List[str] | Bolden and italicize given cells or all entries in the row if only `bold` and `italic` are given. |
 | __add_row__ | \*entries: str,<br />entry_count: Optional[int]=None,<br />justify: Union[List[str], str]="left",<br />bold: bool=False,<br />bold_cells: Optional[List[int]]=None | None | Adds row with specified entries and justification. __entry_count__ can be used to create empty rows. If `bold` is `True` and `bold_cells` is not specified, all the entries in the row become bold. If `bold_cells` is specified, only the specified cells in the row become bold. |
 | __init_table__ | style: Optional[str]=None | None | Initialises the layout of the table. |
 | __display__ | style: Optional[str]=None | None | Prints the table. |

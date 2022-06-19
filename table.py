@@ -14,25 +14,56 @@ class Table:
     
     def pad(self, entry: str) -> None:
         return ' '*self.padding + entry + ' '*self.padding 
+    
+    def format(self, 
+               entries: List[str], 
+               bold: bool, 
+               bold_cells: Optional[List[int]], 
+               italic: bool, 
+               italic_cells: Optional[List[int]]) -> List[str]:
+        f_bold = "\033[1m"
+        f_italic = "\033[3m"
+        f_bold_italic = "\033[1;3m"
+        f_end_format = "\033[0m"
+
+        if bold and bold_cells is None:
+            if italic and italic_cells is None:
+                entries = [f"{f_bold_italic}{entry}{f_end_format}" for entry in entries]
+            elif italic_cells:
+                for cell in italic_cells:
+                    entries[cell] = f"{f_bold_italic}{entries[cell]}{f_end_format}"
+
+        elif bold_cells is not None:
+            if italic and italic_cells is None:
+                for cell in bold_cells:
+                    entries[cell] = f"{f_bold_italix}{entries[cell]}{f_end_format}"
+            elif italic_cells:
+                for cell_b, cell_i in zip(sorted(bold_cells), sorted(italic_cells)):
+                    if cell_b == cell_i:
+                        entries[cell_b] = f"{f_bold_italic}{entries[cell_b]}{f_end_format}"
+                    else:
+                        entries[cell_b] = f"{f_bold}{entries[cell_b]}{f_end_format}"
+                        entries[cell_i] = f"{f_italic}{entries[cell_i]}{f_end_format}"
+        return entries
 
     def add_row(self, 
                 *entries: str, 
                 entry_count: Optional[int]=None, 
                 justify: Union[List[str], str]="left",
                 bold: bool=False,
-                bold_cells: Optional[List[int]]=None) -> None:
+                bold_cells: Optional[List[int]]=None,
+                italic: bool=False,
+                italic_cells: Optional[List[int]]=None) -> None:
         entries = list(entries) if entry_count is None or entries else [""]*entry_count
         if self.rows:
             cols = self.rows[0].get_entries()
             if len(entries) < len(cols):
                 for _ in range(len(cols)-len(entries)):
                     entries.append("")
+
+
         entries = [self.pad(entry) for entry in entries]
-        if bold and bold_cells is None:
-            entries = [f"\033[1m{entry}\033[0m" for entry in entries]
-        elif bold_cells is not None:
-            for cell in bold_cells:
-                entries[cell] = f"\033[1m{entries[cell]}\033[0m"
+        entries = self.format(entries, bold=bold, bold_cells=bold_cells, italic=italic, italic_cells=italic_cells)
         row = Row(*entries, entry_count=entry_count, justify=justify)
         self.rows.append(row)
         self.row_count += 1

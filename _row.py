@@ -25,14 +25,26 @@ class Row:
         return self.entries
 
     def get_width(self, *, col: Optional[int]=None) -> Union[List[int], int]:
-        bold_len = len("\033[1m\033[0m")
+        bold            = "\033[1m"
+        italic          = "\033[3m"
+        bold_italic     = "\033[1;3m"
+        end_format      = "\033[0m"
+        bold_len        = len(bold+end_format)
+        italic_len      = len(italic+end_format)
+        bold_italic_len = len(bold_italic+end_format)
+
         if col is not None:
-            if "\033[1m" in self.entries[col]: 
-                return len(self.entries[col])-bold_len
-            return len(self.entries[col])
+            entry = self.entries[col]
+            entry_len = len(entry)
+            if bold in entry:                      return entry_len-bold_len
+            elif italic in entry:                  return entry_len-italic_len
+            elif bold_italic in self.entries[col]: return entry_len-bold_italic_len
+            return entry_len
         widths = []
         for entry in self.entries:
-            if "\033[1m" in entry:
-                widths.append(len(entry)-bold_len)
-            else: widths.append(len(entry))
+            entry_len = len(entry)
+            if bold in entry:          widths.append(entry_len-bold_len)
+            elif italic in entry:      widths.append(entry_len-italic_len)
+            elif bold_italic in entry: widths.append(entry_len-bold_italic_len)
+            else:                      widths.append(entry_len)
         return widths
