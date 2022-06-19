@@ -1,9 +1,6 @@
 from typing import Optional, List, Union
-import _row
-import _styles
-Row = _row.Row
-Justify = _styles.Justify
-Charset = _styles.Charset
+from ._row import Row
+from ._styles import Justify, Charset
 
 class Table:
     def __init__(self, *, title: Optional[str]=None, padding: int=1) -> None:
