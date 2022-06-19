@@ -75,7 +75,7 @@ class Table:
     def init_table(self, *, style: Optional[str]=None) -> None:
         cs = Charset(style=style)
         ws = []
-        
+        if not self.rows: return 
         ws = [max(row.get_width(col=col) for row in self.rows) 
               for col in range(len(self.rows[0]))]
         
