@@ -1,5 +1,6 @@
 from typing import Optional, List, Iterator, Union
-from _styles import Justify
+import _styles
+Justify = _styles.Justify
 
 class Row:
     def __init__(self, 
