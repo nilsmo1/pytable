@@ -4,9 +4,9 @@ A simple table generator for terminal use, written in python.
 ## Files
 | __Filename__ | __Description__ |
 | :--- | :--- |
-| [__table.py__](https://github.com/nilsmo1/pytable/blob/main/table.py) | The main file containing the `Table` class. |
-| [__\_styles.py__](https://github.com/nilsmo1/pytable/blob/main/_styles.py) | A file containing the different border styles and justifications. Classes `Justify` and `Charset` are in this file. |
-| [__\_row.py__](https://github.com/nilsmo1/pytable/blob/main/_row.py) | A file containing the `Row` class used in the table. |
+| [__table.py__](https://github.com/nilsmo1/pytable/blob/main/pytable/table.py) | The main file containing the `Table` class. |
+| [__\_styles.py__](https://github.com/nilsmo1/pytable/blob/main/pytable/_styles.py) | A file containing the different border styles and justifications. Classes `Justify` and `Charset` are in this file. |
+| [__\_row.py__](https://github.com/nilsmo1/pytable/blob/main/pytable/_row.py) | A file containing the `Row` class used in the table. |
 | [__example.py__](https://github.com/nilsmo1/pytable/blob/main/example.py) | A quick example of a table. |
 
 ## Download and usage
@@ -16,9 +16,9 @@ $ cd pytable/
 $ python3 example.py
 ```
 ```py
-from table import Table
+from pytable.table import Table
 table = Table(title="Example table", padding=2)
-table.add_row("example", "example 2", "ex", bold=True)
+table.add_row("example", "example 2", "ex", bold=True, italic=True)
 table.add_row("e", "e", "e", justify=["left", "center", "right"])
 table.add_row(entry_count=3)
 table.add_row("hello")
